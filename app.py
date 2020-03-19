@@ -175,13 +175,13 @@ def calculateAV(design,population,pop_size):
 
 ### load datasets and global variables
 # read in plan design
-with open('https://github.com/morrowmike/actuarial-tools/design_test.txt?raw=true') as f:
+with open('https://github.com/morrowmike/actuarial-tools/blob/master/design_test.txt?raw=true') as f:
   design = json.load(f) 
 # read in population
-with open('https://github.com/morrowmike/actuarial-tools/pop_test.txt?raw=true') as f:
+with open('https://github.com/morrowmike/actuarial-tools/blob/master/pop_test.txt?raw=true') as f:
   population = json.load(f) 
 # read in av model claimant data
-clmnt_df = pd.read_csv('https://github.com/morrowmike/actuarial-tools/AVSummarizedData.csv?raw=true',index_col=0)
+clmnt_df = pd.read_csv('https://github.com/morrowmike/actuarial-tools/blob/master/AVSummarizedData.csv?raw=true',index_col=0)
 
 ### plan design form
 Ded_input = dbc.FormGroup([
