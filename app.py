@@ -175,13 +175,13 @@ def calculateAV(design,population,pop_size):
 
 ### load datasets and global variables
 # read in plan design
-with open('\\Users\micha\Documents\BST\AV Model\design_test.txt') as f:
+with open('design_test.txt') as f:
   design = json.load(f) 
 # read in population
-with open('\\Users\micha\Documents\BST\AV Model\pop_test.txt') as f:
+with open('pop_test.txt') as f:
   population = json.load(f) 
 # read in av model claimant data
-clmnt_df = pd.read_csv('\\Users\micha\Documents\BST\AV Model\AVSummarizedData.csv',index_col=0)
+clmnt_df = pd.read_csv('AVSummarizedData.csv',index_col=0)
 
 ### plan design form
 Ded_input = dbc.FormGroup([
