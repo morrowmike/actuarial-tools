@@ -3,8 +3,8 @@
 import pandas as pd
 import numpy as np
 import json
-#import seaborn as sns
-#import matplotlib.pyplot as plt
+import requests
+import io
 import time
 import re
 
@@ -175,13 +175,14 @@ def calculateAV(design,population,pop_size):
 
 ### load datasets and global variables
 # read in plan design
-with open('github.com/morrowmike/actuarial-tools/blob/master/design_test.txt?raw=true') as f:
-  design = json.load(f) 
+response = requests.get('https://github.com/morrowmike/actuarial-tools/blob/master/design_test.txt?raw=true')
+design = json.loads(response.text)
 # read in population
-with open('github.com/morrowmike/actuarial-tools/blob/master/pop_test.txt?raw=true') as f:
-  population = json.load(f) 
+response = requests.get('https://github.com/morrowmike/actuarial-tools/blob/master/pop_test.txt?raw=true')
+population = json.loads(response.text) 
 # read in av model claimant data
-clmnt_df = pd.read_csv('github.com/morrowmike/actuarial-tools/blob/master/AVSummarizedData.csv?raw=true',index_col=0)
+response = requests.get('https://github.com/morrowmike/actuarial-tools/blob/master/AVSummarizedData.csv?raw=true')
+clmnt_df = pd.read_csv(io.StringIO(response.decode('utf-8')),index_col=0)
 
 ### plan design form
 Ded_input = dbc.FormGroup([
