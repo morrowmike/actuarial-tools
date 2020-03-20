@@ -379,5 +379,3 @@ def update_interval(jsonified_result):
 
 if __name__ == '__main__':
     app.run_server()
-    
-    
