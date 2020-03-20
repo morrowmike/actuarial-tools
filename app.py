@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 20 06:56:55 2020
+
+@author: micha
+"""
+
 # import supporting libraries
 import pandas as pd
 import numpy as np
 import json
 import requests
-import io
-import time
+#import io
+#import time
 import re
 
 # import dash visualization libraries
@@ -34,7 +40,7 @@ def calculateAV(design,population,pop_size):
     np.random.seed(49)
     
     #time this part of the code
-    start_time = time.time()
+    #start_time = time.time()
         
     # set up empty list for calculated AVs
     AV_list = []
@@ -162,8 +168,8 @@ def calculateAV(design,population,pop_size):
     
     AV_list = np.divide(accum_grp_paid, accum_grp_allowed)
         
-    end_time = time.time()
-    elapsed_time = end_time - start_time
+    #end_time = time.time()
+    #elapsed_time = end_time - start_time
     
     allowed_PMPM = accum_grp_allowed / members
     ptile_allowed_PMPM = np.percentile(allowed_PMPM,[5,50,95])/12
@@ -175,15 +181,15 @@ def calculateAV(design,population,pop_size):
 
 ### load datasets and global variables
 # read in plan design
-response = requests.get('https://raw.githubusercontent.com/morrowmike/actuarial-tools/master/design_test.txt?token=ABGUBNSI7MFSYFMUOQVNJZC6OS6D4')
+response = requests.get('https://github.com/morrowmike/actuarial-tools/raw/master/design_test.txt')
 design = json.loads(response.text)
 # read in population
-response = requests.get('https://raw.githubusercontent.com/morrowmike/actuarial-tools/master/pop_test.txt?token=ABGUBNUPDW6TP3INS4I4MKK6OS6FW')
+response = requests.get('https://github.com/morrowmike/actuarial-tools/raw/master/pop_test.txt')
 population = json.loads(response.text) 
 # read in av model claimant data
 #response = requests.get('https://raw.githubusercontent.com/morrowmike/actuarial-tools/master/AVSummarizedData.csv?token=ABGUBNS3XBWTLZTXCVRESLC6OS6HC')
 #clmnt_df = pd.read_csv(io.StringIO(response.decode('utf-8')),index_col=0)
-clmnt_df = pd.read_csv('https://raw.githubusercontent.com/morrowmike/actuarial-tools/master/AVSummarizedData.csv?token=ABGUBNS3XBWTLZTXCVRESLC6OS6HC',index_col=0)
+clmnt_df = pd.read_csv('https://github.com/morrowmike/actuarial-tools/raw/master/AVSummarizedData.csv',index_col=0)
 
 ### plan design form
 Ded_input = dbc.FormGroup([
@@ -379,4 +385,4 @@ def update_interval(jsonified_result):
     return message
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
