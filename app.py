@@ -175,7 +175,7 @@ def calculateAV(design,population,pop_size):
 
 ### load datasets and global variables
 # read in plan design
-with open('https://github.com/morrowmike/actuarial-tools/blob/master/design_test.txt?raw=true') as f:
+with open('https://raw.githubusercontent.com/morrowmike/actuarial-tools/master/design_test.txt?token=ABGUBNRUIKLB6BGRZ3DQBSK6OQD56') as f:
   design = json.load(f) 
 # read in population
 with open('https://github.com/morrowmike/actuarial-tools/blob/master/pop_test.txt?raw=true') as f:
