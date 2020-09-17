@@ -1,0 +1,1 @@
+{"ind_ded": "$1000", "coin": "20%", "ind_oop": "$5000", "ER_visit": "DED $100", "OP_surgery": "", "Chiropractic": "$30 L10", "IP_visit": "$100", "Misc_service": "", "PCP_visits": "$20", "Prev_visits": "F", "Rx_brand": "$30", "Rx_generic": "$15", "Specialist_visits": "$20"}
